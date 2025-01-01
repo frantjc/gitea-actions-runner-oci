@@ -1,0 +1,24 @@
+# Since this is just a stub,
+# cleverly skip the build.
+builds:
+  - goos:
+      - linux
+    goarch:
+      - amd64
+    ignore:
+      - goos: linux
+        goarch: amd64
+changelog:
+  use: github
+  filters:
+    exclude:
+      - merge conflict
+      - Merge pull request
+      - Merge remote-tracking branch
+      - Merge branch
+dockers:
+  - image_templates:
+      - ghcr.io/frantjc/gitea-act-runner:{{ .Version }}
+      - ghcr.io/frantjc/gitea-act-runner:{{ .Major }}.{{ .Minor }}
+      - ghcr.io/frantjc/gitea-act-runner:{{ .Major }}
+      - ghcr.io/frantjc/gitea-act-runner:latest
